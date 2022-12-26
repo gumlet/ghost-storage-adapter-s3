@@ -1,12 +1,12 @@
-import AWS from 'aws-sdk'
-import BaseStore from 'ghost-storage-base'
-import { join } from 'path'
-import * as fs from 'fs'
+const AWS  =  require('aws-sdk');
+const BaseAdapter = require('ghost-storage-base');
+const path = require("path");
+const fs = require("fs");
 
 const stripLeadingSlash = s => s.indexOf('/') === 0 ? s.substring(1) : s
 const stripEndingSlash = s => s.indexOf('/') === (s.length - 1) ? s.substring(0, s.length - 1) : s
 
-class Store extends BaseStore {
+class Store extends BaseAdapter {
   constructor (config = {}) {
     super(config)
 
@@ -48,7 +48,7 @@ class Store extends BaseStore {
       this.s3()
         .deleteObject({
           Bucket: this.bucket,
-          Key: stripLeadingSlash(join(directory, fileName))
+          Key: stripLeadingSlash(path.join(directory, fileName))
         }, (err) => err ? resolve(false) : resolve(true))
     })
   }
@@ -58,7 +58,7 @@ class Store extends BaseStore {
       this.s3()
         .getObject({
           Bucket: this.bucket,
-          Key: stripLeadingSlash(join(targetDir, fileName))
+          Key: stripLeadingSlash(path.join(targetDir, fileName))
         }, (err) => err ? resolve(false) : resolve(true))
     })
   }
