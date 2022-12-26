@@ -146,4 +146,4 @@ class Store extends BaseAdapter {
   }
 }
 
-export default Store
+module.exports = Store
