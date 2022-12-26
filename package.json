@@ -1,6 +1,6 @@
 {
   "name": "@gumlet/ghost-storage-adapter-s3",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": {
     "name": "Gumlet",
     "email": "support@gumlet.com",
