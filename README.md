@@ -8,9 +8,9 @@ For Ghost 0.10.x and 0.11.x support check out
 ## Installation
 
 ```shell
-npm install ghost-storage-adapter-s3
+npm install @gumlet/ghost-storage-adapter-s3
 mkdir -p ./content/adapters/storage
-cp -r ./node_modules/ghost-storage-adapter-s3 ./content/adapters/storage/s3
+cp -r ./node_modules/@gumlet/ghost-storage-adapter-s3 ./content/adapters/storage/s3
 ```
 
 ## Configuration
@@ -24,7 +24,6 @@ cp -r ./node_modules/ghost-storage-adapter-s3 ./content/adapters/storage/s3
     "region": "YOUR_REGION_SLUG",
     "bucket": "YOUR_BUCKET_NAME",
     "assetHost": "YOUR_OPTIONAL_CDN_URL (See note 1 below)",
-    "signatureVersion": "REGION_SIGNATURE_VERSION (See note 5 below)",
     "pathPrefix": "YOUR_OPTIONAL_BUCKET_SUBDIRECTORY",
     "endpoint": "YOUR_OPTIONAL_ENDPOINT_URL (only needed for 3rd party S3 providers)",
     "serverSideEncryption": "YOUR_OPTIONAL_SSE (See note 2 below)",
@@ -40,8 +39,6 @@ Note 2: if your s3 bucket enforces SSE use serverSideEncryption with the [approp
 Note 3: if your s3 providers requires path style you can enable it with `forcePathStyle`
 
 Note 4: if you use CloudFront the object ACL does not need to be set to "public-read"
-
-Note 5: [Support for AWS4-HMAC-SHA256](https://github.com/colinmeinke/ghost-storage-adapter-s3/issues/43)
 
 ### Via environment variables
 
